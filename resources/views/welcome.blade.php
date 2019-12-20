@@ -77,10 +77,10 @@
                     <a href="{{ route('singin') }}"><h5 class="left-align grey-text">Administrador</h5></a>
                 </div>
                 <div class="col s12">
-                    <a href=""><h5 class="center-align grey-text">Profesores</h5></a>
+                    <a href="{{ route('singin') }}"><h5 class="center-align grey-text">Profesores</h5></a>
                 </div>
                 <div class="col s12">
-                    <a href=""><h5 class="right-align grey-text">Alumnos</h5></a>
+                    <a href="{{ route('singin') }}"><h5 class="right-align grey-text">Alumnos</h5></a>
                 </div>
             </div>
 
@@ -133,27 +133,3 @@
         <script src="{{ asset('js/materialize.min.js') }}"></script>
     </body>
 </html>
-
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Taller de Lectura</title>
-    <link rel="stylesheet" href="{{ asset('css/materialize.min.css') }} ">
-</head>
-<body class="grey lighten-3">
-    <div class="container">
-        <div class="row">
-            <div class="col s12">
-                <h2><span class="flow-text">Taller de Lectura</span></h2>
-                <h2 class="blue-text">Taller de Lectura</h2>
-            </div>
-        </div>
-    </div>
-    
-
-    <script src="asset('js/materialize.min.js')"></script>
-</body>
-</html>-->

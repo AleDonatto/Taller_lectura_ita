@@ -9,14 +9,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         .card{
-            margin-top: 0.5%;
+            margin-top: 1%;
         }
         img{
             margin-top: 1%;
         }
     </style>
 </head>
-<body>
+<body class="teal lighten-2">
     <div class="container">
         <div class="row">
             <div class="col s12">
@@ -26,17 +26,28 @@
                     </div>
                     <div class="card-content">
                         <div class="row">
-                            <form action="" method="post" class="col s12">
+                            <form action="{{ route('loginuser') }}" method="post" class="col s12">
+                                @csrf
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input type="text" name="" id="username" class="validate" placeholder="User Name">
+                                        <input type="text" name="username" id="username" placeholder="User Name" 
+                                        class="validate @error('username') is-invalid @enderror">
                                         <label for="username" class="active">User Name</label>
+
+                                        @error('username')
+                                            <span class="helper-text red-text" data-success="right">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input type="password" name="" id="password" class="validate" placeholder="Password">
+                                        <input type="password" name="password" id="password" placeholder="Password" 
+                                        class="validate @error('password') is-invalid @enderror">
                                         <label for="password" class="active">Password</label>
+
+                                        @error('password')
+                                            <span class="helper-text red-text" data-success="right">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row center-align">
@@ -54,7 +65,7 @@
                                 <a href=""><h6 class="left-align blue-text">Olvido contraseña pendejo</h6></a>                    
                             </div>
                             <div class="col s6">
-                                <a href="" class=""><h6 class="right-align blue-text">Registrarme</h6></a>
+                                <a href=" {{route('registrarse')}} "><h6 class="right-align blue-text">Registrarme</h6></a>
                             </div>
                         </div>
                     </div>

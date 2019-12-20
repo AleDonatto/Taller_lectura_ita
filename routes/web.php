@@ -15,7 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/singin','PublicController@login')->name('singin');
+Route::get('/singin','PublicController@Form_login')->name('singin');
+
+Route::post('loginuser','PublicController@login_init')->name('loginuser');
+
+Route::get('registrarse','PublicController@Form_registro')->name('registrarse');
+
+Route::post('/','PublicController@Registro')->name('registro');
+
 
 Auth::routes();
 
