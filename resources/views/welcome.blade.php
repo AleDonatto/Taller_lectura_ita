@@ -89,13 +89,12 @@
                     <div class="col s2">
                         <img src="{{ asset('img/Libro.png') }}" alt="" class="circle responsive-img" width="120" height="120">
                     </div>
-                    <div class=" title col s10">
+                    <div class="title col s10">
                         <p>Taller de Lectura</p>
                     </div>
                 </div>
             </div>
         </div>
-
         <!--<div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">

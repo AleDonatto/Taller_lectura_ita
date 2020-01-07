@@ -26,7 +26,7 @@
                     </div>
                     <div class="card-content">
                         <div class="row">
-                            <form action="{{ route('loginuser') }}" method="post" class="col s12">
+                            <form action="{{ route('main') }}" method="post" class="col s12">
                                 @csrf
                                 <div class="row">
                                     <div class="input-field col s12">
@@ -50,6 +50,10 @@
                                         @enderror
                                     </div>
                                 </div>
+                                @if(session('errorLogin'))
+                                    <div class="card-panel red lighten-1 center-align">{{ Session::get('errorLogin') }}</div>
+
+                                @endif
                                 <div class="row center-align">
                                     <button type="submit" class="waves-effet waves-light btn-large">
                                         <i class="material-icons left">input</i>
@@ -73,6 +77,6 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/mterialize.min.js') }}"></script>
+    <script src="{{ asset('js/materialize.min.js') }}"></script>
 </body>
 </html>

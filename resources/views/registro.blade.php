@@ -57,39 +57,6 @@
                                         @enderror
                                     </div>
                                     <div class="input-field col s6">
-                                        <select name="carrera" id="carrera">    
-                                            <option value="ISC" disabled selected>ISC</option>
-                                            <option value="LA">LA</option>
-                                            <option value="CP">CP</option>
-                                            <option value="IGE">IGE</option>
-                                            <option value="IEM">IEM</option>
-                                            <option value="IBQ">IBQ</option>
-                                        </select>
-                                        <label for="carrera">Seleccione Carrera</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <select name="semestre" id="semestre">
-                                            <option value="1" disabled selected>1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
-                                            <option value="14">14</option>
-                                            <option value="15">15</option>
-                                        </select>
-                                        <label for="semestre">Semestre</label>
-                                    </div>
-                                    <div class="input-field col s6">
                                         <input type="email" name="correo" id="correo" 
                                         class="validate @error('correo') is-invalid @enderror">
                                         <label for="correo">E Mail</label>
@@ -121,7 +88,7 @@
                                 </div>
                                 @if(session('errorPassword'))
                                     <div class="card-panel red darken-4 center-align">{{ Session::get('errorPassword') }}</div>
-                                @enderror
+                                @endif
                                 <div class="row left-align">
                                     <button type="submit" class="waves-effect waves-light btn">
                                         <i class="material-icons left">how_to_reg</i>
