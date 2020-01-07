@@ -141,4 +141,13 @@ class SpecialController extends Controller
             return back()->with($grupolleno);
         }
     }
+
+    public function ListaTaller(){
+        $taller = DB::table('taller')
+        ->join('Docente','taller.Profesor','=','docente.idDocente')
+        ->select('taller.idTaller','taller.Periodo','taller.Made_year','taller.NAlumnos','docente.Nombre','docente.Apellidos')
+        ->get();
+
+        return view('system.listasTaller',['taller'=>$taller]);
+    }
 }
