@@ -6,6 +6,22 @@
         document.getElementById('contenido').className='animated fadeInRight';
     }
 });*/
+$(document).ready(function(){
+    $('input.autocomplete').autocomplete({
+        data: {
+            "Insuficiente": null,
+            "Suficiente": null,
+            "Bueno": null,
+            "Notable": null,
+            "Excelente": null
+        },
+    });
+});
+
+$(document).ready(function() {
+    M.updateTextFields();
+});
+      
 
 $(document).ready(function(){
     $('.collapsible').collapsible();
@@ -80,8 +96,9 @@ $(document).ready(function(){
 
 $(document).ready( function () {
     $('#myTable').DataTable({
-        "scrollX": true
+        "scrollX": true, 
     });
+    $('select').formSelect();
 } );
 
 

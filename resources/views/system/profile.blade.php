@@ -12,16 +12,30 @@
                 </div>
             @else
                 <blockquote><h4>Mis Talleres</h4></blockquote>
-                @foreach($taller as $item)
-                    <div class="card-panel">
-                        <span class="blue-text text-darken-2">Taller de Lectura</span> <br>
-                        <span class="blue-text text-darken-2">Profesor: {{ $item->Nombre.' '.$item->Apellidos }}</span>
+                <div class="card-panel">
+                    @foreach($taller as $item)
+                        <div class="card-panel col s12">
+                            <div class="row">
+                                <div class="col s2">
+                                    <i class="large material-icons">menu_book</i>
+                                </div>
+                                <div class="col s10">
+                                    <span class="blue-text text-darken-2">Taller de Lectura</span> <br>
+                                    <span class="blue-text text-darken-2">Profesor: {{ $item->Nombre.' '.$item->Apellidos }}</span>
 
-                        <p class="grey-text text-darken-3">
-                            Horario: {{ $item->HoraInicio.' a '. $item->HoraFin.' '.'Dia: '.$item->Dia }}
-                        </p>
-                    </div>
-                @endforeach()
+                                    <p class="grey-text text-darken-3">
+                                        Horario: {{ $item->HoraInicio.' a '. $item->HoraFin.' '.'Dia: '.$item->Dia }}
+                                    </p>
+
+                                    <div class="col s6">
+                                        <a href="{{ route('tareasAlumno',$item->idTaller) }}" class="waves-effect waves-teal btn-flat">Ver Tareas</a>
+                                    </div>
+                                    <div class="col s6"></div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach()
+                </div>
             @endif
         @elseif(session('tipouser') == 'Docente')
             <blockquote><h4>Mis Talleres</h4></blockquote>
@@ -53,34 +67,34 @@
                 @endforeach()
             </div>
         @elseif(session('tipouser') == 'Administrador')
-        <blockquote><h4>Talleres Creados</h4></blockquote>
-        <div class="card-panel">
-            @foreach($taller as $item)
-                <div class="card-panel col s12">
-                    <div class="row">
-                        <div class="col s2">
-                            <i class="large material-icons">menu_book</i>
-                        </div>
-                        <div class="col s5">
-                            <span class="blue-text text-darken-2">Taller de Lectura</span><br>
-                            <span class="blue-text text-darken-2">Docente: {{ $item->Nombre.' '.$item->Apellidos}}</span>
+            <blockquote><h4>Talleres Creados</h4></blockquote>
+            <div class="card-panel">
+                @foreach($taller as $item)
+                    <div class="card-panel col s12">
+                        <div class="row">
+                            <div class="col s2">
+                                <i class="large material-icons">menu_book</i>
+                            </div>
+                            <div class="col s5">
+                                <span class="blue-text text-darken-2">Taller de Lectura</span><br>
+                                <span class="blue-text text-darken-2">Docente: {{ $item->Nombre.' '.$item->Apellidos}}</span>
 
-                            <p class="grey-text text-darken-3">
-                                Periodo: {{ $item->Periodo.' '.$item->made_year }}
-                            </p>
-                        </div>
-                        <div class="col s5">
-                            <p class="grey-text text-darken-3">
-                                Horario: {{ $item->Dia.' '.$item->HoraInicio.' a '.$item->HoraFin}}
-                            </p>
-                            <p class="grey-text text-darken-3">
-                                Total de Alumnos Permitidos: {{ $item->NAlumnos }}
-                            </p>
+                                <p class="grey-text text-darken-3">
+                                    Periodo: {{ $item->Periodo.' '.$item->made_year }}
+                                </p>
+                            </div>
+                            <div class="col s5">
+                                <p class="grey-text text-darken-3">
+                                    Horario: {{ $item->Dia.' '.$item->HoraInicio.' a '.$item->HoraFin}}
+                                </p>
+                                <p class="grey-text text-darken-3">
+                                    Total de Alumnos Permitidos: {{ $item->NAlumnos }}
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach()
-        </div>
+                @endforeach()
+            </div>
         @endif
     </div>
 </main>

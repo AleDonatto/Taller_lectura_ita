@@ -2,7 +2,7 @@
 @include('system.button')
 <main class="col s9 hide" id="main">
     <div class="container">
-        <h6 class="center-align">Crear Nuevo Taller</h6>
+        <blockquote><h4>Crear Nuevo Taller</h4></blockquote>
         <form action="{{ route('taller.store') }}" method="post" class="col s12">
             @csrf
             <div class="row">
@@ -80,7 +80,7 @@
         </form>
         <br><br>
         <div class="divider"></div>
-        <h6 class="center-align">Lista de Talleres Creados</h6>
+        <blockquote><h4>Lista de Talleres Creados</h4></blockquote>
         <table class="striped highlight display nowrap" id="myTable" style="width:100%">
             <thead>
                 <tr>

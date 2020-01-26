@@ -10,5 +10,5 @@ class Alumnos extends Model
     protected $table = 'Alumno';
     protected $primaryKey  = 'Ncontrol';
 
-    protected $fillable = ['Ncontrol','Nombre','Apellidos','Carrera','Semestre','Taller'];
+    protected $fillable = ['Ncontrol','Nombre','Apellidos','Carrera','Semestre'];
 }

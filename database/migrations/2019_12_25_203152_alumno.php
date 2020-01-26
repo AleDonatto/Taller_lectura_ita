@@ -19,9 +19,7 @@ class Alumno extends Migration
             $table->string('Apellidos');
             $table->string('Carrera');
             $table->string('Semestre');
-            $table->string('Taller');
             $table->primary('Ncontrol');
-            $table->foreign('Taller')->references('idTaller')->on('Taller');
             $table->timestamps();
         });
     }

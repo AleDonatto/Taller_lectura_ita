@@ -2,10 +2,10 @@
 @include('system.button')
 <main class="col s9 hide" id="main">
     <div class="container">
+        <blockquote><h4 class="">Agregar Nuevo Docente</h4></blockquote>
         <form action="{{ route('docente.store') }}" method="post" class="col s12">
             @csrf
             <div class="row">
-                <h6 class="center-align">Agregar Nuevo Docente</h6>
                 <div class="input-field col s6">
                     <input type="text" name="nameDocente" id="nameDocente" 
                     class="validate @error('nameDocente') is-invalid @enderror">
@@ -64,7 +64,7 @@
         <br>
         <br>
         <br>
-        <h6 class="center-align">Consulta de Docentes</h6>
+        <blockquote><h4>Consulta de Docentes</h4></blockquote>
 
         <table class="striped highlight display nowrap" id="myTable" style="width:100%">
             <thead>
