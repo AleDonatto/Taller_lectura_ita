@@ -6,15 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\QueryException;
-use App\Alumnos;
+use App\Tareas;
 
-class AlumnosController extends Controller
+class TareasController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('UserCheck');
-    }
-    
     /**
      * Display a listing of the resource.
      *
@@ -23,9 +18,6 @@ class AlumnosController extends Controller
     public function index()
     {
         //
-        $alumnos = Alumnos::all();
-
-        return view('system.alumnos',compact('alumnos'));
     }
 
     /**
@@ -47,6 +39,25 @@ class AlumnosController extends Controller
     public function store(Request $request)
     {
         //
+        $validacion = $request->validate([
+            'taller' => 'required|string',
+            'titulo'=> 'required|string',
+            'fecha' => 'required|date',
+            'descripcion' => 'required|string'
+        ]);
+
+        $tareas = new Tareas;
+        $tareas->Titulo = $request->titulo;
+        $tareas->Descripcion = $request->descripcion;
+        $tareas->FechaEntrega = $request->fecha;
+        $tareas->tareaTaller = $request->taller;
+        $tareas->save();
+        
+        $notificacion = array(
+            'mensajeToast'=>'Tarea creada con exito'
+        );
+        
+        return back()->with($notificacion);
     }
 
     /**

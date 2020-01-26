@@ -3,7 +3,7 @@
 
 <main class="col s9 hide" id="main">
     <div class="container">
-        <h6 class="center-align">Crear nuevo Usuario Administrador</h6>
+        <blockquote><h4>Crear nuevo Usuario Administrador</h4></blockquote>
         <form action="{{ route('usuarios.store') }}" method="post" class="col s12">
             @csrf
             <div class="row">
@@ -62,8 +62,8 @@
             </div>
         </form>
         <div class="divider"></div><br>
-        <h6 class="center-align">Lista de Usuarios</h6>
-        <table class="striped highlight display nowrap" cellspacing="0" id="myTable" style="width:100%">
+        <blockquote><h4>Lista de Usuarios</h4></blockquote>
+        <table class="striped highlight" id="myTable" style="width:100%">
             <thead>
                 <tr>
                     <th scope="col">#</th>

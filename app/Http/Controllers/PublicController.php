@@ -90,9 +90,9 @@ class PublicController extends Controller
             $total = DB::table('Usuarios')->where('Nick',$request->Ncontrol)->count();
             if($total==1){
                 $existe = array(
-                    'existe'=>'El numero de control ingresado ya a sido registrado anteriormente'
+                    'existe' => 'El numero de control ingresado ya a sido registrado anteriormente'
                 );
-                return view('registro')->with($existe);
+                return back()->with($existe);
             }else{
                 $usuarios = new Usuarios;
                 $usuarios->Nombre = $request->nombre;
@@ -105,10 +105,9 @@ class PublicController extends Controller
                 $usuarios->save();
 
                 $bien = array(
-                    'registro'=>'Te has registrado correctamente'
+                    'bien'=>'Te has registrado correctamente. Ahora puedes iniciar sesion'
                 );
-
-                return view('welcome')->with($bien);               
+                return back()->with($bien);               
             }
         }
         

@@ -14,12 +14,16 @@
         img{
             margin-top: 1%;
         }
+        body{
+            margin-top: 1%;
+        }
     </style>
 </head>
 <body class="teal lighten-2">
-    <div class="container">
+    <div class="container center-align">
         <div class="row">
-            <div class="col s12">
+            <div class="col s2"></div>
+            <div class="col s8">
                 <div class="card">
                     <div class="row center-align">
                         <img src="{{ asset('img/login_icon.png') }}" alt="" class="responsive-img" width="120" height="120">
@@ -30,7 +34,7 @@
                                 @csrf
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input type="text" name="username" id="username" placeholder="User Name" 
+                                        <input type="text" name="username" id="username" 
                                         class="validate @error('username') is-invalid @enderror">
                                         <label for="username" class="active">User Name</label>
 
@@ -41,7 +45,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input type="password" name="password" id="password" placeholder="Password" 
+                                        <input type="password" name="password" id="password"
                                         class="validate @error('password') is-invalid @enderror">
                                         <label for="password" class="active">Password</label>
 
@@ -66,7 +70,7 @@
                     <div class="card-action">
                         <div class="row">
                             <div class="col s6">
-                                <a href=""><h6 class="left-align blue-text">Olvido contraseña pendejo</h6></a>                    
+                                <a href=""><h6 class="left-align blue-text">Olvide contraseña</h6></a>                    
                             </div>
                             <div class="col s6">
                                 <a href=" {{route('registrarse')}} "><h6 class="right-align blue-text">Registrarme</h6></a>
@@ -75,6 +79,7 @@
                     </div>
                 </div>
             </div>
+            <div class="col s2"></div>
         </div>
     </div>
     <script src="{{ asset('js/materialize.min.js') }}"></script>
