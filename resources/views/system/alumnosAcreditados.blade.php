@@ -6,7 +6,7 @@
         @isset($taller)
             <blockquote><h4>Alumnos Acreditados</h4></blockquote>
 
-            <table>
+            <table class="striped highlight display nowrap" id="myTable" style="width:100%">
                 <thead>
                     <tr>
                         <th>#</th>

@@ -565,5 +565,78 @@ class SpecialController extends Controller
         $pdf = PDF::loadView('formatos.consCumplimiento',$array);
         return $pdf->stream('cumplimiento.pdf');
     }
+
+    //evaluacion de desempeño de las actividades complementarias
+
+    public function viewDesempenio(){
+        $taller = DB::table('taller')
+        ->join('docente','taller.Profesor','=','docente.idDocente')
+        ->select('taller.idTaller','taller.Periodo','taller.Made_year','docente.Nombre','docente.Apellidos')
+        ->get();
+
+        return view('system.desemActCompl',compact('taller'));
+    }
+
+    public function viewAlumnoDesempenio($taller){
+        $alumnos = DB::table('alumno')
+        ->join('evaluacion','alumno.Ncontrol','=','evaluacion.alumno')
+        ->select('alumno.Ncontrol','alumno.Nombre','alumno.Apellidos','alumno.Carrera','alumno.Semestre')
+        ->where([
+            ['evaluacion.acredito','=','SI'],
+            ['evaluacion.taller','=',$taller],
+        ])
+        ->orderBy('alumno.Apellidos')
+        ->get();
+
+        return view('system.desemActCompl',compact('alumnos'));
+    }
+
+    public function getConsDesemp($control){
+
+        $alumno = DB::table('evaluacion')
+        ->join('alumno','evaluacion.alumno','=','alumno.Ncontrol')
+        ->join('taller','evaluacion.taller','=','taller.idTaller')
+        ->select('alumno.Nombre','alumno.Apellidos','alumno.Ncontrol','alumno.Carrera',
+        'taller.Periodo','taller.Made_year','evaluacion.c1','evaluacion.c2','evaluacion.c3',
+        'evaluacion.c4','evaluacion.c5','evaluacion.c6','evaluacion.c7')
+        ->where('evaluacion.alumno',$control)
+        ->get();
+
+        foreach($alumno as $item){
+            $ncontrol = $item->Ncontrol;
+            $nombre = $item->Nombre;
+            $apellidos = $item->Apellidos;
+            $carrera = $item->Carrera;
+            $periodo = $item->Periodo;
+            $year = $item->Made_year;
+            $c1 = $item->c1;
+            $c2 = $item->c2;
+            $c3 = $item->c3;
+            $c4 = $item->c4;
+            $c5 = $item->c5;
+            $c6 = $item->c6;
+            $c7 = $item->c7;
+        }
+
+        $array = [
+            'ncontrol' => $ncontrol,
+            'nombre' => $nombre,
+            'apellidos' => $apellidos,
+            'carrera' => $carrera,
+            'periodo' => $periodo,
+            'year' => $year,
+            'c1' => $c1,
+            'c2' => $c2,
+            'c3' => $c3,
+            'c4' => $c4,
+            'c5' => $c5,
+            'c6' => $c6,
+            'c7' => $c7
+        ];
+
+        $pdf = PDF::loadView('formatos.consDesemp',$array);
+        return $pdf->stream('cumplimiento.pdf');
+    }
+
 }
 

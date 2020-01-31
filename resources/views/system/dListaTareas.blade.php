@@ -4,7 +4,7 @@
 <main class="col s9 hide" id="main">
     <div class="container">
         <blockquote><h4>Consulta de Tareas</h4></blockquote>
-        <table>
+        <table class="striped highlight display nowrap" id="myTable" style="width:100%">
             <thead>
                 <tr>
                     <th>id Tarea</th>

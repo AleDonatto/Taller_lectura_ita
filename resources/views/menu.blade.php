@@ -76,7 +76,7 @@
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="{{ route('consCumplimiento') }}" style="padding: 0 45px;">Cum. de Act. Complem.</a></li>
-                            <li><a href="" style="padding: 0 45px;">Des. de las Act. Complem.</a></li>
+                            <li><a href="{{ route('viewdesempeño') }}" style="padding: 0 45px;">Des. de las Act. Complem.</a></li>
                             <li><a href="{{ route('talleresacreditados') }}" style="padding: 0 45px;">Lista de Alumnos Acreditados</a></li>
                         </ul>
                     </div>

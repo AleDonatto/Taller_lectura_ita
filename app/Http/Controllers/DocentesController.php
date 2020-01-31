@@ -50,9 +50,7 @@ class DocentesController extends Controller
         $validacion = $request->validate([
             'nameDocente' => 'required|string',
             'apellidos' => 'required|string',
-            'nick' => 'required|string',
             'password' => 'required|string',
-            'correo' => 'required|email'
         ]);
 
         $docente = new Docentes;
@@ -63,10 +61,9 @@ class DocentesController extends Controller
         $usuario = new Usuarios;
         $usuario->Nombre = $request->nameDocente;
         $usuario->Apellidos = $request->apellidos;
-        $usuario->Nick = $request->nick;
+        $usuario->Nick = $request->nameDocente;
         $usuario->password = bcrypt($request->password);
         $usuario->TipoUsuario = 'Docente';
-        $usuario->email = $request->correo;
         $usuario->regComp = 'si';
         $usuario->save(); 
 

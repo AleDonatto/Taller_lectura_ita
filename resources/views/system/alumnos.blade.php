@@ -4,8 +4,8 @@
 <main class="col s9 hide" id="main">
     <div class="container">
         <blockquote><h4>Consulta Todos los Alumnos</h4></blockquote>
-        <table class="striped highlight responsive-table centered" cellspacing="0" id="myTable" style="width: 100%;">
-            <thead>
+        <table class="striped highlight display" cellspacing="0" id="myTable" width="100%">
+            <thead width="100%">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">N. Control</th>
@@ -26,12 +26,13 @@
                     <td>{{ $item->Carrera }}</td>
                     <td>{{ $item->Semestre }}</td>
                     <td>
-                        <a href="" class="btn-floating btn-small waves-effect waves-light blue btn">
+                        <a href="{{ route('alumnos.edit',$item->Ncontrol) }}" class="btn-floating btn-small waves-effect waves-light blue btn">
                             <i class="material-icons">edit</i>
                         </a>
-                        <a href="" class="btn-floating waves-effect waves-light red btn-small btn">
+                        <button data-target="modal1" class="eliminaralumno btn-floating waves-effect waves-light red btn-small modal-trigger"
+                        data-ncontrol="{{ $item->Ncontrol }}" data-position="bottom">
                             <i class="material-icons">delete</i>
-                        </a>
+                        </button>
                     </td>
                 </tr>
                 @endforeach()
@@ -40,3 +41,18 @@
         
     </div>
 </main>
+
+<div id="modal1" class="modal">
+    <form action="{{ route('alumnos.destroy','id') }}" method="post">
+        @csrf 
+        @method('delete')
+        <div class="modal-content">
+            <h4>Eliminar Datos</h4>
+            <p>¿Desea eliminar el dato permanentemente?</p>
+            <input type="hidden" name="ncontrol" id="ncontrol">
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="modal-close waves-effect waves-green btn-flat">Eliminar</button>
+        </div>
+    </form>
+</div>

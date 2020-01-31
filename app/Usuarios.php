@@ -13,7 +13,7 @@ class Usuarios extends Model implements AuthenticatableContract
     protected $table = 'Usuarios';
     protected $primaryKey  = 'id';
 
-    protected $fillable = ['id','Nombre','Apellidos','Nick','password','TipoUsuario','email','regComp'];
+    protected $fillable = ['id','Nombre','Apellidos','Nick','password','TipoUsuario','regComp'];
 
     //protected $dateFormat = 'M j Y h:i:s';
 

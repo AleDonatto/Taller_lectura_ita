@@ -70,7 +70,7 @@
                     <div class="card-action">
                         <div class="row">
                             <div class="col s6">
-                                <a href=""><h6 class="left-align blue-text">Olvide contraseña</h6></a>                    
+                                <a href="{{ route('formCambio') }}"><h6 class="left-align blue-text">Olvide contraseña</h6></a>                    
                             </div>
                             <div class="col s6">
                                 <a href=" {{route('registrarse')}} "><h6 class="right-align blue-text">Registrarme</h6></a>

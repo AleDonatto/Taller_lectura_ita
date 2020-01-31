@@ -22,7 +22,6 @@ $(document).ready(function() {
     M.updateTextFields();
 });
       
-
 $(document).ready(function(){
     $('.collapsible').collapsible();
     $('.sidenav').sidenav();
@@ -32,6 +31,19 @@ $(document).ready(function(){
     $('.timepicker').timepicker();
 });
 
+$(document).ready(function(){
+    $('.modal').modal();
+});
+
+$(document).ready(function() {
+    $('button.eliminaralumno').click(function(event){
+        var ncontrol = $(this).attr('data-ncontrol');
+
+        var oModalDelete = $('#modal1');
+        oModalDelete.find('input[name="ncontrol"]').val(ncontrol);
+        oModalDelete.modal();
+    });
+} );
 
 $(document).ready(function() {
     $('button.deleteTaller').click(function(event){
@@ -49,13 +61,11 @@ $(document).ready(function() {
         var nombre = $(this).attr('data-nombreuser');
         var apellidos = $(this).attr('data-apellidosuser');
         var nick = $(this).attr('data-nick');
-        var correo = $(this).attr('data-correo');
 
         var oModalEdit = $('#modalEditUsuario');
         oModalEdit.find('input[id="idUser"]').val(id);
         oModalEdit.find('input[name="nombreEdit"]').val(nombre);
         oModalEdit.find('input[name="apellidosEdit"]').val(apellidos);
-        oModalEdit.find('input[name="correoEdit"]').val(correo);
         oModalEdit.find('input[name="nick"]').val(nick);
         oModalEdit.modal();
     });

@@ -21,7 +21,6 @@ class Usuarios extends Migration
             $table->string('Nick');
             $table->string('password');
             $table->string('TipoUsuario');
-            $table->string('email');
             $table->string('regComp');
             $table->timestamps();
         });

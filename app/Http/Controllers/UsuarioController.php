@@ -49,8 +49,7 @@ class UsuarioController extends Controller
             'nombreuser'=>'required|string',
             'apellidosuser'=>'required|string',
             'nickuser'=>'required|string',
-            'passworduser'=>'required|string',
-            'correouser'=>'required|email'
+            'passworduser'=>'required|string'
         ]);
 
         $usuario = new Usuarios;
@@ -59,7 +58,6 @@ class UsuarioController extends Controller
         $usuario->Nick = $request->nickuser;
         $usuario->password = bcrypt($request->passworduser);
         $usuario->TipoUsuario = 'Administrador';
-        $usuario->email = $request->correouser;
         $usuario->regComp = 'si';
         $usuario->save();
 
@@ -105,7 +103,6 @@ class UsuarioController extends Controller
         $validator = Validator::make($request->all(), [
             'nombreEdit'=>'required|string',
             'apellidosEdit'=>'required|string',
-            'correoEdit'=>'required|email',
             'nick'=>'required|string',
 
         ]);
@@ -124,8 +121,7 @@ class UsuarioController extends Controller
         ->update([
             'Nombre'=>$request->nombreEdit,
             'Apellidos'=>$request->apellidosEdit,
-            'Nick'=>$request->nick,
-            'email'=>$request->correoEdit
+            'Nick'=>$request->nick
         ]);
 
         $notificacion = array(

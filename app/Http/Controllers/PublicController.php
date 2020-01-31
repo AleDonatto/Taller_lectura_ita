@@ -125,6 +125,42 @@ class PublicController extends Controller
         return $this->loggedOut($request) ?: redirect('/');
     }
 
+    public function ViewCambioPassword(){
+        return view('changePassword');
+    }
+
+    public function CambioPassword(Request $request){
+        $validacion = $request->validate([
+            'nombre'=>'string|required',
+            'apellidos'=>'string|required',
+            'password'=>'required|string',
+            'cpassword'=>'required|string'
+        ]);
+
+        if($request->password != $request->cpassword){
+            $mensaje = array(
+                'diferente'=>'Las constraseñas nos coinciden'
+            );
+            return back()->with($mensaje);
+        }
+
+        $usuario = DB::table('usuarios')
+        ->where([
+            'Nombre'=>$request->nombre,
+            'Apellidos'=>$request->apellidos
+        ])
+        ->update([
+            'password'=>bcrypt($request->password)
+        ]);
+
+        $notificacion = array(
+            'cambio' => 'Su contraseña a sido cambiada'
+        );
+        
+        return back()->with($notificacion);
+        
+    }
+
     protected function guard()
     {
         return Auth::guard();
