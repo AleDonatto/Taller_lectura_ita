@@ -6,7 +6,7 @@
         <blockquote><h4>Cosntancia de Cumplimiento de actividades complementarias</h4></blockquote>
         @isset($taller)
             <blockquote>Talleres </blockquote>
-            <table>
+            <table class="striped highlight display nowrap" id="myTable" style="width:100%">
                 <thead>
                     <tr>
                         <th>#</th>

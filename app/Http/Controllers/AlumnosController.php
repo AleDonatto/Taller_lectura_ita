@@ -69,6 +69,11 @@ class AlumnosController extends Controller
     public function edit($id)
     {
         //
+        $alumno = DB::table('alumno')
+        ->where('Ncontrol',$id)
+        ->get();
+
+        return view('system.editAlumno',compact('alumno'));
     }
 
     /**
@@ -78,9 +83,30 @@ class AlumnosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
         //
+        $validacion = $request->validate([
+            'nombre'=>'required|string',
+            'apellidos'=>'required|string',
+            'carrera'=>'required|string',
+            'semestre'=>'required|string'
+        ]);
+
+        $alumno = DB::table('alumno')
+        ->where('Ncontrol',$id)
+        ->update([
+            'Nombre' => $request->nombre,
+            'Apellidos' => $request->apellidos,
+            'Carrera' => $request->carrera,
+            'Semestre' => $request->semestre
+        ]);
+
+        $notificacion = array(
+            'mensajeToast' => 'Datos del alumno Modificados correctamente'
+        );
+
+        return back()->with($notificacion);
     }
 
     /**
@@ -89,8 +115,22 @@ class AlumnosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
         //
+        try{
+            $alumno = DB::table('alumno')->where('Ncontrol',$request->ncontrol)->delete();
+
+            $notificacion = array(
+                'mensajeToast' => 'Datos eliminados correctamente'
+            );
+            return back()->with($notificacion);
+        }
+        catch(QueryException $ex){
+            $notificacion = array(
+                'mensajeToast' => 'No es posible eliminar los datos'
+            );
+            return back()->with($notificacion);
+        }
     }
 }

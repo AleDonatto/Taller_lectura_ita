@@ -61,15 +61,6 @@
                                             <span class="helper-text red-text" data-success="right">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                    <div class="input-field col s6">
-                                        <input type="email" name="correo" id="correo" 
-                                        class="validate @error('correo') is-invalid @enderror">
-                                        <label for="correo">E Mail</label>
-
-                                        @error('correo')
-                                            <span class="helper-text red-text" data-success="right">{{ $message }}</span>
-                                        @enderror
-                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s6">

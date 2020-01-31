@@ -70,7 +70,6 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellidos</th>
                     <th scope="col">Nick</th>
-                    <th scope="col">Correo</th>
                     <th scope="col">Tipo</th>
                     <th scope="col">Opciones</th>
                 </tr>
@@ -82,12 +81,11 @@
                         <td>{{ $item->Nombre }}</td>
                         <td>{{ $item->Apellidos }}</td>
                         <td>{{ $item->Nick }}</td>
-                        <td>{{ $item->email }}</td>
                         <td>{{ $item->TipoUsuario }}</td>
                         <td>
                             <button data-target="modalEditUsuario" type="button" class="editUser btn-floating btn-small waves-effect waves-light blue btn modal-trigger tooltipped"
                             data-position="bottom" data-tooltip="Editar" data-iduser="{{ $item->id }}" data-nombreuser="{{$item->Nombre}}"
-                            data-apellidosuser="{{ $item->Apellidos}}" data-nick="{{ $item->Nick}}" data-correo="{{$item->email}}">
+                            data-apellidosuser="{{ $item->Apellidos}}" data-nick="{{ $item->Nick}}">
                                 <i class="material-icons">edit</i>
                             </button>
                             <button type="button" data-target="modalDeleteUsuario" class="deleteUser btn-floating waves-effect waves-light red btn-small btn modal-trigger tooltipped"
@@ -125,10 +123,6 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s4">
-                    <input type="email" name="correoEdit" id="correoEdit" class="validate">
-                    <label for="correoEdit" class="active">Correo: </label>
-                </div>
                 <div class="input-field col s4">
                     <input type="text" name="nick" id="nick" class="validate">
                     <label for="nick" class="active">Nick: </label>

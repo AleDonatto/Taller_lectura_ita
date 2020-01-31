@@ -23,6 +23,9 @@ Route::get('registrarse','PublicController@Form_registro')->name('registrarse');
 
 Route::post('/registro','PublicController@Registro')->name('registro');
 
+Route::get('recuperacionPassword','PublicController@ViewCambioPassword')->name('formCambio');
+
+Route::post('cambioPassword','PublicController@CambioPassword')->name('cambioPassword');
 
 Auth::routes();
 
@@ -41,7 +44,7 @@ Route::Resource('usuarios','UsuarioController')->only([
 ]);
 
 Route::Resource('alumnos','AlumnosController')->only([
-    'index','store','update'
+    'index','store','update','edit','destroy'
 ]);
 
 Route::Resource('tareas','TareasController')->only([
@@ -97,3 +100,10 @@ Route::get('constanciaCumplimiento','SpecialController@viewListaComplimiento')->
 Route::get('alumnosCumplimiento/{taller}','SpecialController@viewAlumnosCumplimiento')->name('alumnosCumplimineto');
 
 Route::get('getConstancia/{alumno}','SpecialController@getConsCumplimiento')->name('getConstancia');
+
+//desempeño de actividades 
+Route::get('desempeñoActividades','SpecialController@viewDesempenio')->name('viewdesempeño');
+
+Route::get('desemAlumnos7{taller}','SpecialController@viewAlumnoDesempenio')->name('viewalumnos');
+
+Route::get('getConsDesemp/{control}','SpecialController@getConsDesemp')->name('constDesemp');

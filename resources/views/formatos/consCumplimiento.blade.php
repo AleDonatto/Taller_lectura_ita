@@ -85,7 +85,7 @@
             </div>
 
             <div class="firmas">
-                <p class="atencion">a t e n t a m e n t e</p>
+                <p class="atencion">atentamente</p>
                 <p class="eslogan">"Educacion Tecnologica con Compromiso Social"</p>
             </div>
 

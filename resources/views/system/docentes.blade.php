@@ -27,28 +27,10 @@
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input type="text" name="nick" id="nick" class="validate @error('nick') is-invalid @enderror">
-                    <label for="nick" class="active">Nick: </label>
-
-                    @error('nick')
-                        <span class="helper-text red-text">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="input-field col s6">
                     <input type="password" name="password" id="password" class="validate @error('password') is-invalid @enderror">
                     <label for="password" class="active">Password: </label>
 
                     @error('password')
-                        <span class="helper-text red-text">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input type="email" name="correo" id="correo" class="validate @error('correo') is-invalid @enderror">
-                    <label for="correo" class="active">Correo: </label>
-
-                    @error('correo')
                         <span class="helper-text red-text">{{ $message }}</span>
                     @enderror
                 </div>
