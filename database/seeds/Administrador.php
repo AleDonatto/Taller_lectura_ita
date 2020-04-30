@@ -19,7 +19,6 @@ class Administrador extends Seeder
             'Nick'=>'ADMIN',
             'password'=>bcrypt('alejandro'),
             'TipoUsuario'=>'Administrador',
-            'email'=>'ale_donatto@yahoo.com.mx',
             'regComp'=>'si'
         ]);
     }

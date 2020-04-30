@@ -36,7 +36,6 @@ class PublicController extends Controller
                 $apellido = $item->Apellidos;
                 $identificador = $item->Nick;
                 $Tipouser = $item->TipoUsuario;
-                $correo = $item->email;
                 $registro = $item->regComp;
             }
             session(['idUser'=>$id]);
@@ -44,7 +43,6 @@ class PublicController extends Controller
             session(['apellidos'=>$apellido]);
             session(['identificador'=>$identificador]);
             session(['tipouser'=>$Tipouser]);
-            session(['correo'=>$correo]);
             session(['registro'=>$registro]);
 
             if(session('tipouser')=='Alumno'){
